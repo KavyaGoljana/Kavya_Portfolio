@@ -1,65 +1,189 @@
+/* General styles */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f9fa;
-  color: #212529;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
 }
 
-header, footer {
-  background-color: #343a40;
+h1, h2, h4 {
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: #0d6efd;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header */
+header {
+  background-color: #222;
+  color: white;
+  padding: 1.5rem 0;
+}
+
+header p {
+  margin: 0.2rem 0;
+}
+
+/* Sections */
+section {
+  margin: 2rem auto;
+  max-width: 900px;
+  background-color: white;
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgb(0 0 0 / 0.1);
+}
+
+section h2 {
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+img[alt="Profile"] {
+  border-radius: 50%;
+  border: 4px solid #0d6efd;
+}
+
+/* Lists */
+ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  color: #444;
+}
+
+/* Projects list - clickable with highlight */
+#projectsList li {
+  padding: 0.5rem 0.8rem;
+  border-left: 4px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  margin-bottom: 0.3rem;
+}
+
+#projectsList li:hover {
+  background-color: #e9f0ff;
+}
+
+#projectsList li.expanded {
+  border-left-color: #0d6efd;
+  background-color: #d7e3fc;
+  font-weight: 600;
+}
+
+/* Experience cards */
+.experience-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  background-color: #fafafa;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.05);
+  position: relative;
+}
+
+.experience-card img {
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.experience-card img:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* Buttons container hidden by default */
+.exp-buttons {
+  display: none;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* Show buttons when .show class added */
+.exp-buttons.show {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Buttons style */
+.exp-buttons button {
+  padding: 0.35rem 0.8rem;
+  border-radius: 4px;
+  border: none;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.exp-buttons .btn-primary {
+  background-color: #0d6efd;
   color: white;
 }
 
-h2 {
-  margin-top: 40px;
-  margin-bottom: 20px;
-  color: #0d6efd;
+.exp-buttons .btn-primary:hover {
+  background-color: #084bcc;
 }
 
-ul {
-  list-style-type: none;
-  padding-left: 0;
+.exp-buttons .btn-secondary {
+  background-color: #6c757d;
+  color: white;
 }
 
-ul li::before {
-  content: '\2022';
-  color: #0d6efd;
-  display: inline-block;
-  width: 1em;
-  margin-left: -1em;
+.exp-buttons .btn-secondary:hover {
+  background-color: #565e64;
 }
 
-img {
-  border-radius: 8px;
+/* Info sections hidden by default */
+.tech-info,
+.exp-info {
+  display: none;
+  margin-top: 0.7rem;
+  background-color: #eef3ff;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #222;
 }
 
+/* Footer */
+footer {
+  background-color: #222;
+  color: white;
+  padding: 1rem 0;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+
+/* Bootstrap overrides for carousel captions */
 .carousel-caption {
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.45);
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
 }
 
-section {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  section {
+    padding: 1rem 1.2rem;
+  }
 
-/* Project hover effect */
-ul li:hover {
-  background-color: #e9ecef;
-  cursor: pointer;
-  transition: 0.3s;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-/* Languages Fancy Text */
-section ul li {
-  font-weight: 500;
-  font-style: italic;
-}
-
-/* Responsive Image */
-.img-fluid {
-  max-width: 100%;
-  height: auto;
+  .experience-card {
+    margin-bottom: 1.5rem;
+  }
 }
